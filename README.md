@@ -6,4 +6,4 @@ Machine Learning handy functions in Julia/Flux:
 * loadModelState()
 * saveModelState()
 * IoU()
-* IoU_loss
+* IoU_loss()
