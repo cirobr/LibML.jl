@@ -7,3 +7,5 @@ Machine Learning handy functions in Julia/Flux:
 * loadModelState(fullpathFilename, modelcpu)
 * IoU(yhat, y)
 * IoU_loss(yhat, y)
+* tv07_loss(yhat, y)
+* tv03_loss(yhat, y)

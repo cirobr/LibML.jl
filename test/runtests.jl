@@ -11,4 +11,7 @@ using Test
     
     @test LibML.IoU(yhat, y) == 0.44305855f0 || error("IoU failed")
     @test LibML.IoU_loss(yhat, y) == 0.55694145f0 || error("IoU_loss failed")
+
+    @test LibML.tv07_loss(yhat, y) == 0.35723418f0 || error("tv07_loss failed")
+    @test LibML.tv03_loss(yhat, y) == 0.35199696f0 || error("tv03_loss failed")
 end
