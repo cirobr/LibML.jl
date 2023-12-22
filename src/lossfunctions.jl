@@ -4,11 +4,9 @@ function IoU(yhat::AbstractArray, y::AbstractArray)
     # intersection = sum(yc .* y)
     # union        = sum(yc .+ y) - intersection
     # iou = intersection / (union + eps(Float32))
-    i = sum(yc .* y)
-    u = sum(yc .+ y .- i)
-    iou = i / (u + eps(Float32))
-
-    return iou |> Float32
+    i = yc .* y
+    u = yc .+ y .- i
+    return sum(i) / (sum(u) + eps(Float32)) |> Float32
 end
 
 IoU_loss(yhat::AbstractArray, y::AbstractArray) = 1.0f0 - IoU(yhat, y)
