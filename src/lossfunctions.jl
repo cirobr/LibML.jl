@@ -1,9 +1,5 @@
 function IoU(yhat::AbstractArray, y::AbstractArray)
     yc = clamp.(yhat, 0.0, 1.0)
-
-    # intersection = sum(yc .* y)
-    # union        = sum(yc .+ y) - intersection
-    # iou = intersection / (union + eps(Float32))
     i = yc .* y
     u = yc .+ y .- i
     return sum(i) / (sum(u) + eps(Float32)) |> Float32
