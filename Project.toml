@@ -10,7 +10,7 @@ Flux = "587475ba-b771-5e3f-ad9e-33799f191a9c"
 [compat]
 julia = "1.9"
 BSON = "0.3"
-Flux = "0.14"
+Flux = "0.13.17, 0.14"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
