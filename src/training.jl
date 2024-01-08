@@ -1,9 +1,9 @@
-function trainModel!(model, data, optstate, lossfn, nepochs::Int=1; verbose=false)
+function trainModel!(model, data, optstate, lossfn; epochs::Int=1, verbose=false)
     lendata     = length(data)
     epochLosses = Vector{Float32}(undef, nepochs)
     stepLosses  = Vector{Float32}(undef, nepochs * lendata)
 
-    for epoch in 1:nepochs
+    for epoch in 1:epochs
         epochsteplosses = Vector{Float32}(undef, lendata)
 
         for (i, (X,y)) in enumerate(data)
@@ -35,5 +35,5 @@ function testModel(model, data, lossfn)
         losses[i] = lossfn(yhat, y)
     end
 
-    return losses
+    return mean(losses), losses
 end
