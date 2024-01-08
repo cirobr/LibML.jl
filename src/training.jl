@@ -12,7 +12,7 @@ function trainModel!(model, data, optstate, lossfn, nepochs::Int=1; verbose=fals
                 lossfn(yhat, y)
             end
 
-            Flux.update!(optstate, m, grads[1])
+            Flux.update!(optstate, model, grads[1])
 
             epochsteplosses[i] = loss
             stepLosses[(epoch-1)*lendata + i] = loss
