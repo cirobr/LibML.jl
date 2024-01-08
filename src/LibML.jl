@@ -2,9 +2,13 @@ module LibML
 
 
 # libraries
-using Flux
-using Statistics: mean
-using BSON
+export IoU, IoU_loss
+export saveModelState, loadModelState
+export trainModel!, testModel
+
+import Flux
+import Statistics: mean
+import BSON
 
 include("./modelstate.jl")               # saveModelState, loadModelState
 include("./lossfunctions.jl")            # IoU
