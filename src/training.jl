@@ -1,4 +1,4 @@
-function trainModel!(model, data, optstate, lossfn, nepochs; verbose=false)
+function trainModel!(model, data, optstate, lossfn; nepochs::Int=1, verbose=false)
     lendata     = length(data)
     epochLosses = Vector{Float32}(undef, nepochs)
     stepLosses  = Vector{Float32}(undef, nepochs * lendata)
