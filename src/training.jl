@@ -27,7 +27,7 @@ function trainModel!(model, data, optstate, lossfn; epochs::Int=1, verbose=false
 end
 
 
-# lossfns is an array of loss vectors
+# lossfns is a vector of loss functions
 function testModel(model, data, lossfns)
     losses = Array{Float32,2}(undef, (length(data), length(lossfns)))
 
