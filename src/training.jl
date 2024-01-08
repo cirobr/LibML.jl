@@ -7,8 +7,8 @@ function trainModel!(model, data, optstate, lossfn, nepochs::Int=1; verbose=fals
         epochsteplosses = Vector{Float32}(undef, lendata)
 
         for (i, (X,y)) in enumerate(data)
-            loss, grads = Flux.withgradient(m) do m
-                yhat = model(X)
+            loss, grads = Flux.withgradient(model) do m
+                yhat = m(X)
                 lossfn(yhat, y)
             end
 
