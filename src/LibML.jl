@@ -4,7 +4,7 @@ module LibML
 # libraries
 export IoU, IoU_loss
 export saveModelState, loadModelState
-export trainModel!, testModel, testModel2
+export trainModel!, testModel
 
 import Flux
 import Statistics: mean

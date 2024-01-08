@@ -27,20 +27,8 @@ function trainModel!(model, data, optstate, lossfn; epochs::Int=1, verbose=false
 end
 
 
-function testModel(model, data, lossfn)
-    losses = Vector{Float32}(undef, length(data))
-
-    for (i, (X,y)) in enumerate(data)
-        yhat = model(X)
-        losses[i] = lossfn(yhat, y)
-    end
-
-    return losses
-end
-
-
-# function similar to testModel, but accepts several loss functions
-function testModel2(model, data, lossfns)
+# lossfns is a vector of loss functions
+function testModel(model, data, lossfns)
     losses = Array{Float32,2}(undef, (length(data), length(lossfns)))
 
     for (i, (X,y)) in enumerate(data)
