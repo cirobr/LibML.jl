@@ -37,3 +37,18 @@ function testModel(model, data, lossfn)
 
     return losses
 end
+
+
+# function similar to testModel, but accepts several loss functions
+function testModel2(model, data, lossfns)
+    losses = Vector{Float32}(undef, length(data), length(lossfns))
+
+    for (i, (X,y)) in enumerate(data)
+        yhat = model(X)
+        for (j, lossfn) in enumerate(lossfns)
+            losses[i,j] = lossfn(yhat, y)
+        end
+    end
+
+    return losses
+end
