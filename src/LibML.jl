@@ -3,6 +3,7 @@ module LibML
 
 # libraries
 using Flux
+using Statistics: mean
 using BSON
 
 include("./modelstate.jl")               # saveModelState, loadModelState
