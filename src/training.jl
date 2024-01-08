@@ -35,5 +35,5 @@ function testModel(model, data, lossfn)
         losses[i] = lossfn(yhat, y)
     end
 
-    return mean(losses), losses
+    return losses
 end
