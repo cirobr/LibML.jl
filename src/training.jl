@@ -1,10 +1,10 @@
 function trainModel!(model, data, optstate, lossfn; epochs::Int=1, verbose=false)
-    lendata     = length(data)
-    epochLosses = Vector{Float32}(undef, epochs)
-    stepLosses  = Vector{Float32}(undef, epochs * lendata)
+    len_data    = length(data)
+    epochLosses = Vector{Float32}(undef, epochs)              # buffer for epoch losses
+    stepLosses  = Vector{Float32}(undef, epochs * len_data)   # buffer for step losses
 
     for epoch in 1:epochs
-        epochsteplosses = Vector{Float32}(undef, lendata)
+        vectorsteplosses = Vector{Float32}(undef, len_data)   # buffer for single epoch loss calculation
 
         for (i, (X,y)) in enumerate(data)
             loss, grads = Flux.withgradient(model) do m
@@ -14,11 +14,11 @@ function trainModel!(model, data, optstate, lossfn; epochs::Int=1, verbose=false
 
             Flux.update!(optstate, model, grads[1])
 
-            epochsteplosses[i] = loss
-            stepLosses[(epoch-1)*lendata + i] = loss
+            vectorsteplosses[i]                = loss         # step loss for epoch loss calculation
+            stepLosses[(epoch-1)*len_data + i] = loss         # store step loss history
         end
 
-        epochLosses[epoch] = mean(epochsteplosses)
+        epochLosses[epoch] = mean(vectorsteplosses)           # epoch loss calculation
     end
 
     if verbose   return epochLosses, stepLosses
