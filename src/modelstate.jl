@@ -14,3 +14,9 @@ function loadModelState(fullpathFilename, modelcpu)
 
     return
 end
+
+
+function saveModelCB(path="./models/", model)
+    fpfn = path * "model_state-" * Dates.format(now(), "yyyy-mm-ddTHH-MM-SS-sss") * ".bson"
+    saveModelState(fpfn, model)    
+end
