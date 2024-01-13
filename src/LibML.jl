@@ -3,7 +3,7 @@ module LibML
 
 # libraries
 export IoU, IoU_loss
-export saveModelState, loadModelState, saveModelCB
+export saveModelState, loadModelState, saveModelStateCB
 export trainModel!, testModel
 
 import Flux
