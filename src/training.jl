@@ -1,4 +1,9 @@
-function trainModel!(model, data, optstate, lossfn; epochs::Int=1, verbose=false)
+# epochLosses = Vector{Float32}()
+# stepLosses  = Vector{Float32}()
+function trainModel!(model, data, optstate, lossfn,
+                     epochLosses::Vector{Float32}, stepLosses::Vector{Float32};
+                     epochs::Int=1)
+                     
     len_data    = length(data)
     epochLosses = Vector{Float32}(undef, epochs)              # buffer for epoch losses
     stepLosses  = Vector{Float32}(undef, epochs * len_data)   # buffer for step losses
@@ -21,22 +26,22 @@ function trainModel!(model, data, optstate, lossfn; epochs::Int=1, verbose=false
         epochLosses[epoch] = mean(vectorsteplosses)           # epoch loss calculation
     end
 
-    if verbose   return epochLosses, stepLosses
-    else         return
-    end
+    return
 end
 
 
-# lossfns is a vector of loss functions
-function testModel(model, data, lossfns)
-    losses = Array{Float32,2}(undef, (length(data), length(lossfns)))
+# stepLosses  = Vector{Float32}()
+function testModel(model, data, lossfns::Vector{Any},
+                   stepLosses::Vector{Float32})
+
+    stepLosses = Array{Float32,2}(undef, (length(data), length(lossfns)))
 
     for (i, (X,y)) in enumerate(data)
         yhat = model(X)
         for (j, lossfn) in enumerate(lossfns)
-            losses[i,j] = lossfn(yhat, y)
+            stepLosses[i,j] = lossfn(yhat, y)
         end
     end
 
-    return losses
+    return
 end
