@@ -13,8 +13,7 @@ function trainModel!(model, data, optstate, lossfn,
 
         for (i, (X,y)) in enumerate(data)
             loss, grads = Flux.withgradient(model) do m
-                yhat = m(X)
-                lossfn(yhat, y)
+                lossfn(m(X), y)
             end
 
             Flux.update!(optstate, model, grads[1])
