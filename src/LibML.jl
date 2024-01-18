@@ -7,7 +7,6 @@ export saveModelState, loadModelState, saveModelStateCB
 export trainModel!, testModel
 
 import Flux
-import Statistics: mean
 import BSON
 import Dates
 
