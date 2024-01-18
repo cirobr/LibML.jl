@@ -2,8 +2,6 @@ function saveModelState(fullpathFilename, model)
     modelcpu    = Flux.cpu(model)
     model_state = Flux.state(modelcpu)
     BSON.@save fullpathFilename model_state
-
-    return
 end
 
 
@@ -11,16 +9,11 @@ end
 function loadModelState(fullpathFilename, modelcpu)
     BSON.@load fullpathFilename model_state
     Flux.loadmodel!(modelcpu, model_state)
-
-    return
 end
 
 
 function saveModelStateCB(path, model)
-    if path[end] != '/'
-        path = path * "/"
-    end
-    
+    if path[end] != '/'   path = path * "/"   end
     fpfn = path * "model_state-" * Dates.format(Dates.now(), "yyyy-mm-ddTHH-MM-SS-sss") * ".bson"
     saveModelState(fpfn, model)    
 end
