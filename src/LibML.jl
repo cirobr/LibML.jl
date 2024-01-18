@@ -13,7 +13,7 @@ import Dates
 
 include("./modelstate.jl")               # saveModelState, loadModelState
 include("./lossfunctions.jl")            # IoU
-include("./training.jl")                 # trainModel!
+# include("./dev/training.jl")                 # trainModel!
 
 
 end   # module
