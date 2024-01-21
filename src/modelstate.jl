@@ -14,6 +14,6 @@ end
 
 function saveModelStateCB(path, model)
     if path[end] != '/'   path = path * "/"   end
-    fpfn = path * "model_state-" * Dates.format(Dates.now(), "yyyy-mm-ddTHH-MM-SS-sss") * ".bson"
+    fpfn = path * "model_state-" * Dates.format(Dates.now(), "yyyy-mm-ddTHH-MM-SS-sss") * ".jld2"
     saveModelState(fpfn, model)    
 end
