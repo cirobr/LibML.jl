@@ -18,16 +18,16 @@ function trainModel!(model, data, optstate, lossfn; verbose=false)
 end
 
 
-# # lossfns is a vector of loss functions
-# function testModel(model, data, lossfns)
-#     losses = Array{Float32,2}(undef, (length(data), length(lossfns)))
+# lossfns is a vector of loss functions
+function testModel(model, data, lossfns)
+    losses = Array{Float32,2}(undef, (length(data), length(lossfns)))
 
-#     for (i, (X,y)) in enumerate(data)
-#         yhat = model(X)
-#         for (j, lossfn) in enumerate(lossfns)
-#             losses[i,j] = lossfn(yhat, y)
-#         end
-#     end
+    for (i, (X,y)) in enumerate(data)
+        yhat = model(X)
+        for (j, lossfn) in enumerate(lossfns)
+            losses[i,j] = lossfn(yhat, y)
+        end
+    end
 
-#     return losses
-# end
+    return mean(losses; dims=1)
+end
