@@ -1,13 +1,13 @@
 function saveModelState(filename, model)
     modelcpu    = Flux.cpu(model)
     model_state = Flux.state(modelcpu)
-    BSON.@save filename model_state
+    JLD2.jldsave(filename; model_state)
 end
 
 
 # modelcpu = Chain(...), needs to be defined before the function call
 function loadModelState(filename, modelcpu)
-    BSON.@load filename model_state
+    model_state = JLD2.load(filename, "model_state")
     Flux.loadmodel!(modelcpu, model_state)
 end
 

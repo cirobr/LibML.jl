@@ -7,7 +7,8 @@ export saveModelState, loadModelState, saveModelStateCB
 export trainModel!, testModel
 
 import Flux
-import BSON
+import JLD2
+# import BSON
 import Dates
 
 include("./modelstate.jl")               # saveModelState, loadModelState
