@@ -1,7 +1,11 @@
+path = "./testpath/"
+mkpath(path)
+
+
 m1 = Flux.Dense(5,5)
 s1 = Flux.state(m1)
 p1 = Flux.params(m1)
-fpfn = "./modelname.jld2"
+fpfn = path * "modelname.jld2"
 @test saveModelState(fpfn, m1) === nothing
 
 
@@ -15,7 +19,7 @@ p2 = Flux.params(m2)
 rm(fpfn)
 
 
-path = "./testpath"
-mkpath(path)
 @test saveModelStateCB(path, m1) === nothing
+
+
 rm(path, recursive=true, force=true)
