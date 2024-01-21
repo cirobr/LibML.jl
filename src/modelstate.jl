@@ -1,13 +1,13 @@
-function saveModelState(fullpathFilename, model)
+function saveModelState(filename, model)
     modelcpu    = Flux.cpu(model)
     model_state = Flux.state(modelcpu)
-    BSON.@save fullpathFilename model_state
+    BSON.@save filename model_state
 end
 
 
 # modelcpu = Chain(...), needs to be defined before the function call
-function loadModelState(fullpathFilename, modelcpu)
-    BSON.@load fullpathFilename model_state
+function loadModelState(filename, modelcpu)
+    BSON.@load filename model_state
     Flux.loadmodel!(modelcpu, model_state)
 end
 
