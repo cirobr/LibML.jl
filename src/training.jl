@@ -29,5 +29,5 @@ function testModel(model, data, lossfns)
         end
     end
 
-    return mean(losses; dims=1)
+    return vec( mean(losses; dims=1) )
 end
