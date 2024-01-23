@@ -8,13 +8,13 @@ export trainModel!, testModel
 
 import Flux
 import Statistics: mean
-import ProgressBars               # training/validation with progress bars
+import ProgressBars; pb = ProgressBars   # training/validation with progress bars
 import JLD2
 import Dates
 
-include("./modelstate.jl")        # saveModelState, loadModelState
-include("./lossfunctions.jl")     # IoU
-include("./training.jl")          # trainModel!, testModel
+include("./modelstate.jl")               # saveModelState, loadModelState
+include("./lossfunctions.jl")            # IoU
+include("./training.jl")                 # trainModel!, testModel
 
 
 end   # module

@@ -1,7 +1,7 @@
 function trainModel!(model, data, optstate, lossfn; verbose=false)
     steplosses = Vector{Float32}(undef, length(data))
 
-    for (i, (X,y)) in ProgressBar( enumerate(data) )
+    for (i, (X,y)) in pb.ProgressBar( enumerate(data) )
         loss, grads = Flux.withgradient(model) do m
             lossfn(m(X), y)
         end
@@ -27,7 +27,7 @@ end
 function testModel(model, data, lossfns)
     losses = Array{Float32,2}(undef, (length(data), length(lossfns)))
 
-    for (i, (X,y)) in ProgressBar( enumerate(data) )
+    for (i, (X,y)) in pb.ProgressBar( enumerate(data) )
         yhat = model(X)
         for (j, lossfn) in enumerate(lossfns)
             losses[i,j] = lossfn(yhat, y)
