@@ -1,18 +1,20 @@
 name = "LibML"
 uuid = "be25e5fc-066e-40b8-ac16-2ae9c4d91289"
 authors = ["Ciro B Rosa <ciro.rosa@alumni.usp.br>"]
-version = "0.3.4-DEV"
+version = "0.3.4"
 
 [deps]
 Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
 Flux = "587475ba-b771-5e3f-ad9e-33799f191a9c"
 JLD2 = "033835bb-8acc-5ee8-8aae-3f567f8a3819"
+ProgressBars = "49802e3a-d2f1-5c88-81d8-b72133a6f568"
 Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
 Statistics = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
 
 [compat]
 Flux = "0.13.17, 0.14"
 JLD2 = "0.4"
+ProgressBars = "1.5"
 julia = "1.10"
 
 [extras]

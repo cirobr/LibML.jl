@@ -14,5 +14,6 @@ Machine Learning handy functions in Julia/Flux:
 ### v0.3.4
 * First documented version
 * Changed modelstate.jl dependency from BSON to JLD2
-* Extended testing for modelstate.jl with models
+* Extended testing for modelstate.jl
 * Added trainModel!()
+* Added progress bars to both trainModel!() and testModel()
