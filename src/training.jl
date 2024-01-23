@@ -1,7 +1,7 @@
 function trainModel!(model, data, optstate, lossfn; verbose=false)
     steplosses = Vector{Float32}(undef, length(data))
 
-    for (i, (X,y)) in enumerate(data)
+    for (i, (X,y)) in ProgressBar( enumerate(data) )
         loss, grads = Flux.withgradient(model) do m
             lossfn(m(X), y)
         end
@@ -18,11 +18,16 @@ function trainModel!(model, data, optstate, lossfn; verbose=false)
 end
 
 
-# lossfns is a vector of loss functions
+# example of metrics vector, all metrics with format fn(yhat, y):
+# lossfns = [LibML.IoU_loss,
+#            Flux.crossentropy,
+#            Flux.mse,
+# ]
+
 function testModel(model, data, lossfns)
     losses = Array{Float32,2}(undef, (length(data), length(lossfns)))
 
-    for (i, (X,y)) in enumerate(data)
+    for (i, (X,y)) in ProgressBar( enumerate(data) )
         yhat = model(X)
         for (j, lossfn) in enumerate(lossfns)
             losses[i,j] = lossfn(yhat, y)
