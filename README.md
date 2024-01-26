@@ -9,6 +9,11 @@ Machine Learning handy functions in Julia/Flux:
 * saveModelStateCB(path, model)
 * IoU(yhat, y)
 * IoU_loss(yhat, y)
+* classification_metrics(yhat::Array{Bool}, y::Array{Bool}; verbosity=false)
+
+
+### v0.3.5
+* Added classification_metrics()
 
 
 ### v0.3.4
