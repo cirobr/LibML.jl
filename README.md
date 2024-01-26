@@ -4,6 +4,7 @@
 
 Machine Learning extension functions to Flux.jl:
 * trainModel!(model, data, optstate, lossfn; verbose=false)
+* testModel(model, data, lossfns)
 * saveModelState(filename, model)
 * loadModelState(filename, modelcpu)
 * saveModelStateCB(path, model)
