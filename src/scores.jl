@@ -4,7 +4,7 @@ function IoUScore(yhat::Array{Float32}, y::Array{Bool}; threshold=0.5)
 end
 
 
-function AccScore(yhat::Array{Float32}, y::Array{Bool}; threshold=0.5)
+function AccScore(yhat::AbstractArray, y::Array{Bool}; threshold=0.5)
     yth = map(x -> x > threshold ? true : false, yhat)
     cm = sm.ConfusionMatrix(levels=Bool[0,1])(yth, y)
     return sm.accuracy(cm) |> Float32
@@ -12,7 +12,7 @@ end
 const AccuracyScore = AccScore
 
 
-function F1Score(yhat::Array{Float32}, y::Array{Bool}; threshold=0.5)
+function F1Score(yhat::AbstractArray, y::Array{Bool}; threshold=0.5)
     yth = map(x -> x > threshold ? true : false, yhat)
     cm = sm.ConfusionMatrix(levels=Bool[0,1])(yth, y)
     return sm.Functions.fscore(cm) |> Float32
