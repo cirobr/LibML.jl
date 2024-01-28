@@ -28,10 +28,10 @@ function testModel(model, data, lossfn, metrics)
     lossfns = vcat(lossfn, metrics)
     losses = Array{Float32,2}(undef, (length(data), length(lossfns)))
 
-    i=0
-    # for (i, (X,y)) in pb.ProgressBar( enumerate(data) )
-    for (X,y) in data
-        i+=1
+    # i=0
+    for (i, (X,y)) in pb.ProgressBar( enumerate(data) )
+    # for (X,y) in data
+        # i+=1
         yhat = model(X)
         lossfn(yhat, y)   # temporary, to get lossfn to compile
         j=0
