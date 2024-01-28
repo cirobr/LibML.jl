@@ -21,13 +21,13 @@ Machine Learning extension functions to Flux.jl:
 
 ### v0.3.6
 * Removed classification_metrics(), replaced by individual score functions with thresholds for yhat, as follows:
-* IoUScore(yhat, y; threshold=0.5)
-* AccScore(yhat, y; threshold=0.5)
-* F1Score(yhat, y; threshold=0.5)
-* PrecisionScore(yhat, y; threshold=0.5)
-* RecallScore(yhat, y; threshold=0.5)
-* FPRScore(yhat, y; threshold=0.5)
-* TNRScore(yhat, y; threshold=0.5)
+* IoUScore
+* AccScore
+* F1Score
+* PrecisionScore
+* RecallScore
+* FPRScore
+* TNRScore
 
 
 ### v0.3.5
