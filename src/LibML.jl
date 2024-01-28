@@ -8,6 +8,7 @@ export trainModel!, testModel
 export IoUScore, AccScore, AccuracyScore, F1Score, PrecisionScore, PPVScore, RecallScore, TPRScore, FPRScore, TNRScore
 
 import Flux
+import Flux: cpu
 import Statistics: mean
 import StatisticalMeasures; sm=StatisticalMeasures
 import ProgressBars; pb = ProgressBars   # training/validation with progress bars
