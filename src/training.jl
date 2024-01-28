@@ -34,9 +34,9 @@ function testModel(model, data, lossfn, metrics)
         i+=1
         yhat = model(X)
         lossfn(yhat, y)   # temporary, to get lossfn to compile
-        # for (j, lossfn) in enumerate(lossfns)
-        #     losses[i,j] = lossfn(yhat, y)
-        # end
+        for (j, lossfn) in enumerate(lossfns)
+            losses[i,j] = lossfn(yhat, y)
+        end
     end
 
     return vec( mean(losses; dims=1) )
