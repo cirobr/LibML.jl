@@ -38,7 +38,7 @@ function testModel(model, data, lossfn, metrics)
         # for (j, lossfn) in enumerate(lossfns)
         for lfn in lossfns
             j+=1
-            losses[i,j] = lfn(yhat, y)
+            losses[i,j] = Flux.cpu(lfn(yhat, y))
         end
     end
 
