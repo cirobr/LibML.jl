@@ -24,7 +24,8 @@ end
 #            Flux.mse,
 # ]
 
-function testModel(model, data, lossfns)
+function testModel(model, data, lossfn, metrics)
+    lossfns = vcat(lossfn, metrics)
     losses = Array{Float32,2}(undef, (length(data), length(lossfns)))
 
     for (i, (X,y)) in pb.ProgressBar( enumerate(data) )
