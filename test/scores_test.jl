@@ -1,0 +1,11 @@
+Random.seed!(1)
+yhat = rand(Float32, 10,10)
+y    = rand(Bool, 10,10)
+
+@test LibML.IoUScore(yhat, y) == 0.32f0 || error("IoUScore failed")
+@test LibML.AccScore(yhat, y) == 0.49f0 || error("AccScore failed")
+@test LibML.F1Score(yhat, y) == 0.4848485f0 || error("F1Score failed")
+@test LibML.PrecisionScore(yhat, y) == 0.5f0 || error("PrecisionScore failed")
+@test LibML.RecallScore(yhat, y) == 0.47058824f0 || error("RecallScore failed")
+@test LibML.FPRScore(yhat, y) == 0.48979592f0 || error("FPRScore failed")
+@test LibML.TNRScore(yhat, y) == 0.5102041f0 || error("TNRScore failed")

@@ -1,7 +1,7 @@
 name = "LibML"
 uuid = "be25e5fc-066e-40b8-ac16-2ae9c4d91289"
 authors = ["Ciro B Rosa <ciro.rosa@alumni.usp.br>"]
-version = "0.3.5"
+version = "0.3.6"
 
 [deps]
 Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"

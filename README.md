@@ -10,7 +10,24 @@ Machine Learning extension functions to Flux.jl:
 * saveModelStateCB(path, model)
 * IoU(yhat, y)
 * IoU_loss(yhat, y)
-* classification_metrics(yhat::Array{Bool}, y::Array{Bool}; verbosity=false)
+* IoUScore(yhat, y; threshold=0.5)
+* AccScore(yhat, y; threshold=0.5)
+* F1Score(yhat, y; threshold=0.5)
+* PrecisionScore(yhat, y; threshold=0.5)
+* RecallScore(yhat, y; threshold=0.5)
+* FPRScore(yhat, y; threshold=0.5)
+* TNRScore(yhat, y; threshold=0.5)
+
+
+### v0.3.6
+* Removed classification_metrics(), replaced by individual score functions with thresholds for yhat, as follows:
+* IoUScore(yhat, y; threshold=0.5)
+* AccScore(yhat, y; threshold=0.5)
+* F1Score(yhat, y; threshold=0.5)
+* PrecisionScore(yhat, y; threshold=0.5)
+* RecallScore(yhat, y; threshold=0.5)
+* FPRScore(yhat, y; threshold=0.5)
+* TNRScore(yhat, y; threshold=0.5)
 
 
 ### v0.3.5

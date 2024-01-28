@@ -13,8 +13,9 @@ import ProgressBars; pb = ProgressBars   # training/validation with progress bar
 import JLD2
 import Dates
 
-include("./modelstate.jl")      # saveModelState, loadModelState
 include("./lossfunctions.jl")   # IoU, classification_metrics
+include("./modelstate.jl")      # saveModelState, loadModelState
+include("./scores.jl")          # IoUScore, AccScore, F1Score, PrecisionScore, RecallScore, FPRScore, TNRScore
 include("./training.jl")        # trainModel!, testModel
 
 
