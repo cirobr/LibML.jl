@@ -30,11 +30,10 @@ function testModel(model, data, lossfn, metrics)
 
     for (i, (X,y)) in pb.ProgressBar( enumerate(data) )
         yhat = model(X)
-        F1Score(yhat, y)
 
-        # for (j, lfn) in enumerate(lossfns)
-        #     losses[i,j] = lfn(yhat, y)
-        # end
+        for (j, lfn) in enumerate(lossfns)
+            losses[i,j] = lfn(yhat, y)
+        end
     end
 
     return vec( mean(losses; dims=1) )
