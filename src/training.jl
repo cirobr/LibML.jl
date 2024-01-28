@@ -29,13 +29,13 @@ function testModel(model, data, lossfn, metrics)
     losses = Array{Float32,2}(undef, (length(data), length(lossfns)))
 
     i=0
-    for (X,y) in data
-        i+=1
     # for (i, (X,y)) in pb.ProgressBar( enumerate(data) )
-        yhat = model(X)
-        for (j, lossfn) in enumerate(lossfns)
-            losses[i,j] = lossfn(yhat, y)
-        end
+    for (X,y) in data
+        # i+=1
+        # yhat = model(X)
+        # for (j, lossfn) in enumerate(lossfns)
+        #     losses[i,j] = lossfn(yhat, y)
+        # end
     end
 
     return vec( mean(losses; dims=1) )
