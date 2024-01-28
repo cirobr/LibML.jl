@@ -19,8 +19,9 @@ end
 
 
 # example of metrics vector, all metrics with format fn(yhat, y):
-# lossfns = [LibML.IoU_loss,
-#            Flux.crossentropy,
+# metrics = [LibML.IoUScore,
+#            LibML.AccScore,
+#            LibML.F1Score,
 #            Flux.mse,
 # ]
 
@@ -36,5 +37,6 @@ function testModel(model, data, lossfn, metrics)
         end
     end
 
-    return vec( mean(losses; dims=1) )
+    res = vec( mean(losses; dims=1) )
+    return res[1], res[2:end]   # return loss, metrics
 end
