@@ -32,7 +32,7 @@ function testModel(model, data, lossfn, metrics)
         yhat = model(X)
         lossfn(yhat, y)
         for (j, lfn) in enumerate(lossfns)
-            lfn(yhat, y)
+            gpu(lfn(yhat, y))
             # losses[i,j] = lfn(yhat, y)
         end
     end
