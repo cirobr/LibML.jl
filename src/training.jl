@@ -36,9 +36,9 @@ function testModel(model, data, lossfn, metrics)
         lossfn(yhat, y)   # temporary, to get lossfn to compile
         j=0
         # for (j, lossfn) in enumerate(lossfns)
-        for lossfn in lossfns
+        for lfn in lossfns
             j+=1
-            losses[i,j] = lossfn(yhat, y)
+            losses[i,j] = lfn(yhat, y)
         end
     end
 
