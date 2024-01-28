@@ -5,6 +5,7 @@ module LibML
 export IoU, IoU_loss
 export saveModelState, loadModelState, saveModelStateCB
 export trainModel!, testModel
+export IoUScore, AccScore, AccuracyScore, F1Score, PrecisionScore, PPVScore, RecallScore, TPRScore, FPRScore, TNRScore
 
 import Flux
 import Statistics: mean
