@@ -4,6 +4,7 @@ authors = ["Ciro B Rosa <ciro.rosa@alumni.usp.br>"]
 version = "0.3.6"
 
 [deps]
+CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
 Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
 Flux = "587475ba-b771-5e3f-ad9e-33799f191a9c"
 JLD2 = "033835bb-8acc-5ee8-8aae-3f567f8a3819"
@@ -13,6 +14,7 @@ StatisticalMeasures = "a19d573c-0a75-4610-95b3-7071388c7541"
 Statistics = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
 
 [compat]
+CUDA = "5.1"
 Flux = "0.13.17, 0.14"
 JLD2 = "0.4"
 ProgressBars = "1.5"
