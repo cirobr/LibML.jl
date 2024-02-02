@@ -25,7 +25,7 @@ end
 #            Flux.mse,
 # ]
 
-function testModel(model, data, lossfn, metrics)
+function evaluateModel(model, data, lossfn, metrics)
     lossfns = vcat(lossfn, metrics)
     losses = Array{Float32,2}(undef, (length(data), length(lossfns)))
 
@@ -40,3 +40,4 @@ function testModel(model, data, lossfn, metrics)
     res = vec( mean(losses; dims=1) )
     return res[1], res[2:end]   # return loss, metrics
 end
+const testModel = evaluateModel
