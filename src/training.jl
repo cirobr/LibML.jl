@@ -41,5 +41,5 @@ function evaluateModel(model, data, lossfn, metrics)
     res = vec( mean(losses; dims=1) )
     return res[1], res[2:end]   # return loss, metrics
 end
+const testModel     = evaluateModel
 const evaluateEpoch = evaluateModel
-const testModel = evaluateModel
