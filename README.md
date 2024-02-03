@@ -4,7 +4,7 @@
 
 Machine Learning extension functions to Flux.jl:
 * trainModel!(model, data, optstate, lossfn; verbose=false)
-* testModel(model, data, lossfns)
+* evaluateModel(model, data, lossfns)
 * saveModelState(filename, model)
 * loadModelState(filename, modelcpu)
 * saveModelStateCB(path, model)
@@ -19,8 +19,14 @@ Machine Learning extension functions to Flux.jl:
 * TNRScore(yhat, y; threshold=0.5)
 
 
+### v0.3.7
+Added aliases:
+* trainEpoch!   = alias to trainModel!
+* evaluateEpoch = alias to evaluateModel! and testModel
+
+
 ### v0.3.6
-* Removed classification_metrics(), replaced by individual score functions with thresholds for yhat, as follows:
+Removed classification_metrics(), replaced by individual score functions with thresholds for yhat, as follows:
 * IoUScore
 * AccScore
 * F1Score
