@@ -16,6 +16,7 @@ function trainModel!(model, data, optstate, lossfn; verbose=false)
     else         return epochloss
     end
 end
+const trainEpoch! = trainModel!
 
 
 # example of metrics vector, all metrics with format fn(yhat, y):
@@ -40,4 +41,5 @@ function evaluateModel(model, data, lossfn, metrics)
     res = vec( mean(losses; dims=1) )
     return res[1], res[2:end]   # return loss, metrics
 end
+const evaluateEpoch = evaluateModel
 const testModel = evaluateModel
