@@ -20,6 +20,11 @@ Machine Learning extension functions to Flux.jl:
 * TNRScore(yhat, y; threshold=0.5)
 
 
+### v0.3.9
+* IoU_loss() full Float32 calculation.
+* IoUScore() based on confusion matrix.
+
+
 ### v0.3.8
 Added new loss function, for knowledge distillation projects
 * softKLDiv

@@ -16,7 +16,7 @@ IoU_loss(yhat, y)
 Implements the loss function for intersection-over-union.
 Arguments yhat and y must only have elements between [0:1]. Function does not check for that.
 """
-IoU_loss(yhat::AbstractArray, y::AbstractArray) = 1.0 - IoU(yhat, y) |> Float32
+IoU_loss(yhat::AbstractArray, y::AbstractArray) = 1.0f0 - IoU(yhat, y) |> Float32
 
 
 
