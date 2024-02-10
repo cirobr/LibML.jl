@@ -1,8 +1,3 @@
-# function IoUScore(yhat::AbstractArray, y::AbstractArray; threshold=0.5)
-#     yth = map(x -> x > threshold ? true : false, yhat)
-#     return IoU(yth, y) |> Float32
-# end
-
 function IoUScore(yhat::AbstractArray, y::AbstractArray; threshold=0.5)
     yth = map(x -> x > threshold ? true : false, yhat)
     cm = sm.ConfusionMatrix(levels=Bool[0,1])(cpu(yth), cpu(y))
