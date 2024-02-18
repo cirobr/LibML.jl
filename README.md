@@ -10,7 +10,7 @@ Machine Learning extension functions to Flux.jl:
 * saveModelStateCB(path, model)
 * IoU(yhat, y)
 * IoU_loss(yhat, y)
-* softKLDiv(yhat, y; dims=1)
+* softKLDiv(yhat, y; T::Float32=1.0f0, dims::Int=1)
 * IoUScore(yhat, y; threshold=0.5)
 * AccScore(yhat, y; threshold=0.5)
 * F1Score(yhat, y; threshold=0.5)
@@ -20,6 +20,9 @@ Machine Learning extension functions to Flux.jl:
 * TNRScore(yhat, y; threshold=0.5)
 
 
+### v0.3.10
+* Added T as temperature argument in softKLDiv().
+
 ### v0.3.9
 * IoU_loss() full Float32 calculation.
 * IoUScore() based on confusion matrix.
@@ -27,7 +30,7 @@ Machine Learning extension functions to Flux.jl:
 
 ### v0.3.8
 Added new loss function, for knowledge distillation projects
-* softKLDiv
+* softKLDiv()
 
 
 ### v0.3.7
