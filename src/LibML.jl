@@ -7,6 +7,7 @@ export saveModelState, loadModelState, saveModelStateCB
 export trainModel!, evaluateModel
 export trainEpoch!, testModel, evaluateEpoch
 export IoUScore, AccScore, AccuracyScore, F1Score, PrecisionScore, PPVScore, RecallScore, TPRScore, FPRScore, TNRScore
+export countParams
 
 import Flux
 import Flux: cpu
@@ -20,6 +21,7 @@ include("./lossfunctions.jl")   # IoU, classification_metrics
 include("./modelstate.jl")      # saveModelState, loadModelState
 include("./scores.jl")          # IoUScore, AccScore, F1Score, PrecisionScore, RecallScore, FPRScore, TNRScore
 include("./training.jl")        # trainModel!, testModel
+include("./misc.jl")            # countParams
 
 
 end   # module

@@ -7,4 +7,5 @@ using Test
     include("./lossfunctions_test.jl")
     include("./modelstate_test.jl")
     include("./scores_test.jl")
+    include("./misc_test.jl")
 end
