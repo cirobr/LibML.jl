@@ -8,6 +8,7 @@ Machine Learning extension functions to Flux.jl:
 * saveModelState(filename, model)
 * loadModelState(filename, modelcpu)
 * saveModelStateCB(path, model)
+* countParams(model)
 * IoU(yhat, y)
 * IoU_loss(yhat, y)
 * softKLDiv(yhat, y; T::Float32=1.0f0, dims::Int=1)
