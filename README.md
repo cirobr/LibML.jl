@@ -20,6 +20,10 @@ Machine Learning extension functions to Flux.jl:
 * TNRScore(yhat, y; threshold=0.5)
 
 
+### v0.3.11
+* Added new function countParams(model).
+
+
 ### v0.3.10
 * Added T as temperature argument in softKLDiv().
 
