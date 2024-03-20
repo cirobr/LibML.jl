@@ -5,8 +5,7 @@ function saveModelState(filename, model)
 end
 
 
-# modelcpu = Chain(...), needs to be defined before the function call
-function loadModelState(filename, modelcpu)
+function loadModelState!(filename, modelcpu)
     model_state = JLD2.load(filename, "model_state")
     Flux.loadmodel!(modelcpu, model_state)
 end

@@ -13,7 +13,7 @@ m2 = Flux.Dense(5,5)
 p2 = Flux.params(m2)
 @test p1 != p2   # parameters shall be different
 
-loadModelState(fpfn, m2)
+loadModelState!(fpfn, m2)
 p2 = Flux.params(m2)
 @test p1 == p2   # parameters shall be equal
 rm(fpfn)
