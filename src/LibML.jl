@@ -2,13 +2,6 @@ module LibML
 
 
 # libraries
-export IoU, IoU_loss, softKLDiv
-export saveModelState, loadModelState!, saveModelStateCB
-export trainModel!, evaluateModel
-export trainEpoch!, testModel, evaluateEpoch
-export IoUScore, AccScore, AccuracyScore, F1Score, PrecisionScore, PPVScore, RecallScore, TPRScore, FPRScore, TNRScore
-export countParams
-
 import Flux
 import Flux: cpu
 import Statistics: mean

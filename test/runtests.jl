@@ -1,4 +1,4 @@
-using LibML
+using LibML; ml=LibML
 using Flux
 using Random
 using Test

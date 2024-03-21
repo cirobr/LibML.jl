@@ -21,6 +21,9 @@ Machine Learning extension functions to Flux.jl:
 * TNRScore(yhat, y; threshold=0.5)
 
 
+### v0.3.12
+* Functions are no longer exported, and must be called along with the package name as prefix.
+
 ### v0.3.11
 * Added new function countParams(model).
 
